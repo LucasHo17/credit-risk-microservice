@@ -9,5 +9,7 @@ class Loan(models.Model):
     funded_amnt = models.DecimalField(max_digits=10, decimal_places=2)
     default_flag = models.BooleanField()
 
+    recoveries = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    collection_recovery_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     def __str__(self):
         return f"Loan {self.id} - Grade {self.grade}"
