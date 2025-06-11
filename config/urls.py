@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from risk_model.views import CapitalCalculationView, home
+from credit_risk_app.views import CapitalCalculationView, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
