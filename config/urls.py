@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from risk_model.views import CapitalCalculationView, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('api/calculate-capital/', CapitalCalculationView.as_view(), name='calculate-capital')
 ]
