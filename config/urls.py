@@ -16,10 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from credit_risk_app.views import CapitalCalculationView, home
+from credit_risk_app.views import CapitalCalculationView, PortfolioMetricsView, home
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('api/calculate-capital/', CapitalCalculationView.as_view(), name='calculate-capital')
+    path('admin/', admin.site.urls),
+    # loan-level risk 
+    path('api/loan/<int:loan_id>/risk/', LoanRiskView.as_view(), name='loan-risk'),
+    # portfolio-level metrics
+    path('api/portfolio/metrics/', PortfolioMetricsView.as_view(), name='portfolio-metrics'),
+    # calculate capital
+    path('api/calculate-capital/', CapitalCalculationView.as_view(), name='calculate-capital'),
+    # loan ingestion
+    # path('api/loans/')
 ]
